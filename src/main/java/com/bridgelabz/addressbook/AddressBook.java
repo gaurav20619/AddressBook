@@ -9,11 +9,14 @@ public class AddressBook implements AddressBookIF {
 	ArrayList<ContactPerson> contactList = new ArrayList<ContactPerson>();
 	
 	public void operation() {
+
+
+
         boolean moreChanges = true;
         do{
 
             System.out.println("\nChoose the operation you want to perform");
-            System.out.println("1.Add To Address Book\n2.Edit Existing Entry\n3.Display Address book\n4.Exit Address book System");
+            System.out.println("1.Add To Address Book\n2.Edit Existing Entry\n3.Display Address book\n4.Delete Contact\n5.Exit Address book System");
 
             switch (scannerObject.nextInt()) {
                 case 1:
@@ -26,6 +29,9 @@ public class AddressBook implements AddressBookIF {
                     displayContents();
                     break;
                 case 4:
+                    deletePerson();
+                    break;
+                case 5:
                     moreChanges = false;
                     System.out.println("BYE !");
 
@@ -34,7 +40,9 @@ public class AddressBook implements AddressBookIF {
 
         }while(moreChanges);
     }
+
     public void addContact() {
+
         ContactPerson person = new ContactPerson();
         Address address = new Address();
 
@@ -73,6 +81,7 @@ public class AddressBook implements AddressBookIF {
         contactList.add(person);
 
     }
+
     public void editPerson() {
 
         System.out.println("Enter the first name:");
@@ -127,14 +136,26 @@ public class AddressBook implements AddressBookIF {
         }
 
     }
+    public void deletePerson() {
+
+        System.out.println("Enter the first name of the person to be deleted");
+        String firstName = scannerObject.next();
+        Iterator<ContactPerson> iterator = contactList.listIterator();
+        while(iterator.hasNext()) {
+
+            ContactPerson person = iterator.next();
+
+            if(firstName.equals(person.getFirstName())) {
+                contactList.remove(person);
+                return;
+            }
+        }
+    }
     public void displayContents() {
 
         Iterator<ContactPerson> iterator = contactList.iterator();
         while(iterator.hasNext()) {
             System.out.println(iterator.next());
         }
-
     }
-    
-    
 }

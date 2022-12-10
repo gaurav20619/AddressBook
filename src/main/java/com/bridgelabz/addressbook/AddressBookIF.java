@@ -5,4 +5,5 @@ public interface AddressBookIF {
     void addContact();
     void displayContents();
     void editPerson();
+    void deletePerson();
 }
