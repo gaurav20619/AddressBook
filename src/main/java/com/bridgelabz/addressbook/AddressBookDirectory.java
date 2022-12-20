@@ -46,9 +46,9 @@ public class AddressBookDirectory implements AddressBookDirectoryIF {
                     System.out.println("Enter \n1.Display By City\n2.Display By State");
                     int countChoice = scannerObject.nextInt();
                     if(countChoice==1)
-                        countPeopleByRegion(AddressBook.personByCity);
+                        displayPeopleByRegion(AddressBook.personByCity);
                     else
-                        countPeopleByRegion(AddressBook.personByState);
+                        displayPeopleByRegion(AddressBook.personByState);
                     break;
                 case 6:
                     displayDirectoryContents();
@@ -89,7 +89,7 @@ public class AddressBookDirectory implements AddressBookDirectoryIF {
         String personName = scannerObject.next();
 
         for(AddressBook addressBook : addressBookDirectory.values()) {
-            ArrayList<ContactPerson> contactList = addressBook.getContact();
+            com.bridgelabz.addressbook.ArrayList<ContactPerson> contactList = addressBook.getContact();
             contactList.stream()
                     .filter(person -> person.getFirstName().equals(personName) && person.getAddress().getCity().equals(cityName))
                     .forEach(person -> System.out.println(person));
@@ -102,7 +102,7 @@ public class AddressBookDirectory implements AddressBookDirectoryIF {
         String personName = scannerObject.next();
 
         for(AddressBook addressBook : addressBookDirectory.values()) {
-            ArrayList<ContactPerson> contactList = ((AddressBook) addressBook).getContact();
+            com.bridgelabz.addressbook.ArrayList<ContactPerson> contactList = ((AddressBook) addressBook).getContact();
             contactList.stream()
                     .filter(person -> person.getFirstName().equals(personName) && person.getAddress().getState().equals(stateName))
                     .forEach(person -> System.out.println(person));
@@ -137,5 +137,6 @@ public class AddressBookDirectory implements AddressBookDirectoryIF {
         }
         
     }
+    
 }
 

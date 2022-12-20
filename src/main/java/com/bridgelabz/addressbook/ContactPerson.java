@@ -50,4 +50,11 @@ public class ContactPerson {
         return "Person Details:\nFirst Name - "+firstName+"\nLast Name - "+lastName+"\nPhone Number - "+phoneNumber+"\nEmail - "+email+"\nAddress - "+address;
 
     }
+
+    public Object getKey() {
+        return null;
+    }
+
+    public void add(ContactPerson contact) {
+    }
 }

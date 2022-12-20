@@ -7,4 +7,5 @@ public interface AddressBookDirectoryIF {
     public void editAddressBook();
     public void searchByCity();
     public void searchByState();
+    public void displayPeopleByRegion(HashMap<String, ArrayList<ContactPerson>> listToDisplay);
 }
