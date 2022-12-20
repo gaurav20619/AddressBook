@@ -15,4 +15,7 @@ public class ArrayList<T> {
         return null;
     }
 
+    public void add(String employeeDetails) {
+    }
+
 }

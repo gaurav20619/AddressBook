@@ -6,4 +6,6 @@ public interface AddressBookIF {
     void displayContents();
     void editPerson();
     void deletePerson();
+    void writeToAddressBookFile();
+    com.bridgelabz.addressbook.ArrayList<String> readDataFromFile();
 }
